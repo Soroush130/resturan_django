@@ -1,0 +1,709 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>رستوران</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="{% static 'css/colors/orange.css' %}"/>
+
+    <!-- Modernizer -->
+    <script src="{% static 'js/modernizer.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="loader">
+    <div id="status"></div>
+</div>
+<div id="site-header">
+    <header id="header" class="header-block-top">
+        <div class="container">
+            <div class="row">
+                <div class="main-menu">
+                    <!-- navbar -->
+                    <nav class="navbar navbar-default" id="mainNav">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">منوی کشویی</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                    <img src="{% static 'images/logo.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/resevation">رزور کردن</a></li>
+                                <li><a href="#footer">تماس با ما</a></li>
+                                <li><a href="#pricing">قیمت</a></li>
+                                <li><a href="#blog">بلاگ</a></li>
+                                <li><a href="#gallery">گالری</a></li>
+                                <li><a href="#our_team">تیم</a></li>
+                                <li><a href="#menu">منو</a></li>
+                                <li><a href="#about">درباره ی ما </a></li>
+                                <li class="active"><a href="#banner">خانه</a></li>
+                            </ul>
+                        </div>
+                        <!-- end nav-collapse -->
+                    </nav>
+                    <!-- end navbar -->
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </header>
+    <!-- end header -->
+</div>
+<!-- end site-header -->
+
+<div id="banner" class="banner full-screen-mode parallax">
+    <div class="container pr">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="banner-static">
+                <div class="banner-text">
+                    <div class="banner-cell">
+                        <h1>شام با ما <span class="typer" id="some-id" data-delay="200" data-delim=":"
+                                            data-words="دوستان:خانواده ها:Officemates" data-colors="red"></span><span
+                                class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+
+                        <p style="direction: rtl">برایتان شب خوشی آرزو مندیم .</p>
+                        <div class="book-btn">
+                            <a href="/resevation" class="table-btn hvr-underline-from-center">میز من رو رزرو کن</a>
+                        </div>
+                        <a href="#about">
+                            <div class="mouse"></div>
+                        </a>
+                    </div>
+                    <!-- end banner-cell -->
+                </div>
+                <!-- end banner-text -->
+            </div>
+            <!-- end banner-static -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end banner -->
+
+<div id="about" class="about-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <h2 class="block-title"> درباره ما </h2>
+                    <h3>{{ about.title }}</h3>
+                    <p>{{ about.description }} </p>
+                </div>
+            </div>
+            <!-- end col -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <div class="about-images">
+                        <img class="about-main" src="{% static 'images/about-main.jpg' %}" alt="About Main Image">
+                        <img class="about-inset" src="{% static 'images/about-inset.jpg' %}" alt="About Inset Image">
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+
+{% if special_today %}
+    <div class="special-menu pad-top-100 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title color-white text-center"> مخصوص امروز </h2>
+                        <h5 class="title-caption text-center"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                            و
+                            با استفاده از طراحان گرافیک است </h5>
+                    </div>
+                    <div class="special-box">
+                        <div id="owl-demo">
+                            {% for products in special_today %}
+                                <div class="item item-type-zoom">
+                                    <a href="#" class="item-hover">
+                                        <div class="item-info" style="margin-bottom: 30px">
+                                            <div class="headline">
+                                                {{ products.title }}
+                                                <div class="line"></div>
+                                                <div class="dit-line">
+                                                    {{ products.body }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="item-img">
+                                        <img src="{{ products.image.url }}" alt="{{ products.title }}">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- end special-box -->
+                </div>
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end special-menu -->
+{% endif %}
+
+<div id="menu" class="menu-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <h2 class="block-title text-center">
+                        منوی ما
+                    </h2>
+                    <p class="title-caption text-center">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است </p>
+                </div>
+                <div class="tab-menu">
+                    <div class="slider slider-nav">
+                        <div class="tab-title-menu">
+                            <h2>پیش غذا</h2>
+                            <p><i class="flaticon-canape"></i></p>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>غذاهای اصلی</h2>
+                            <p><i class="flaticon-dinner"></i></p>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>دسر ها</h2>
+                            <p><i class="flaticon-desert"></i></p>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>نوشیدنی ها</h2>
+                            <p><i class="flaticon-coffee"></i></p>
+                        </div>
+                    </div>
+                    <div class="slider slider-single">
+                        <div>
+                            {% for product in categories_1 %}
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                    <div class="offer-item">
+                                        <img src="{{ product.image.url }}" alt="{{ product.title }}"
+                                             class="img-responsive">
+                                        <div>
+                                            <h3>{{ product.title }}</h3>
+                                            <p>
+                                                {{ product.body }}
+                                            </p>
+                                        </div>
+                                        <span class="offer-price"> {{ product.price }} </span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div>
+                            {% for product in categories_2 %}
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                    <div class="offer-item">
+                                        <img src="{{ product.image.url }}" alt="{{ product.title }}"
+                                             class="img-responsive">
+                                        <div>
+                                            <h3>{{ product.title }}</h3>
+                                            <p>
+                                                {{ product.body }}
+                                            </p>
+                                        </div>
+                                        <span class="offer-price"> {{ product.price }} </span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div>
+                            {% for product in categories_3 %}
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                    <div class="offer-item">
+                                        <img src="{{ product.image.url }}" alt="{{ product.title }}"
+                                             class="img-responsive">
+                                        <div>
+                                            <h3>{{ product.title }}</h3>
+                                            <p>
+                                                {{ product.body }}
+                                            </p>
+                                        </div>
+                                        <span class="offer-price"> {{ product.price }} </span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            {% for product in categories_4 %}
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                    <div class="offer-item">
+                                        <img src="{{ product.image.url }}" alt="{{ product.title }}"
+                                             class="img-responsive">
+                                        <div>
+                                            <h3>{{ product.title }}</h3>
+                                            <p>
+                                                {{ product.body }}
+                                            </p>
+                                        </div>
+                                        <span class="offer-price"> {{ product.price }} </span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- end tab-menu -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end menu -->
+
+
+<div id="our_team" class="team-main pad-top-100 pad-bottom-100 parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <h2 class="block-title text-center">
+                        تیم ما
+                    </h2>
+                    <p class="title-caption text-center"> ما یکی از بهترین تیم های ایران را دور هم جمع کردیم</p>
+                </div>
+                <div class="team-box">
+
+                    <div class="row">
+                        {% for team in teams %}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a href="#"><img src="{{ team.image.url }}" alt="{{ team.title }}"></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>{{ team.title }}</h3>
+                                        <p>{{ team.body }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- end row -->
+
+                </div>
+                <!-- end team-box -->
+
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end team-main -->
+
+<div id="gallery" class="gallery-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <h2 class="block-title text-center">
+                        گالری ما
+                    </h2>
+                    <p class="title-caption text-center">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است </p>
+                </div>
+                <div class="gal-container clearfix">
+                    {% for foo in gallery_food %}
+                        <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#{{ foo.id }}">
+                                    <img src="{{ foo.image.url }}" alt=""/>
+                                </a>
+                                <div class="modal fade" id="{{ foo.id }}" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="{{ foo.image.url }}" alt=""/>
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>{{ foo.text }}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+                <!-- end gal-container -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end gallery-main -->
+
+<div id="blog" class="blog-main pad-top-100 pad-bottom-100 parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2 class="block-title text-center">
+                    بلاگ ما
+                </h2>
+                <div class="blog-box clearfix">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="blog-block">
+                                <div class="blog-img-box">
+                                    <img src="{% static 'images/featured-image-01.jpg' %}" alt=""/>
+                                    <div class="overlay">
+                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="blog-dit">
+                                    <p><span>25 دی 1397</span></p>
+                                    <h2>اخرین دستورات پخت</h2>
+                                    <h5>توسط اقای ای</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="blog-block">
+                                <div class="blog-img-box">
+                                    <img src="{% static 'images/featured-image-02.jpg' %}" alt=""/>
+                                    <div class="overlay">
+                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="blog-dit">
+                                    <p><span>2 دی 1397</span></p>
+                                    <h2>استخدامی جدید رسید</h2>
+                                    <h5>توسط اقا ی ایکس</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="blog-block">
+                                <div class="blog-img-box">
+                                    <img src="{% static 'images/featured-image-03.jpg' %}" alt=""/>
+                                    <div class="overlay">
+                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="blog-dit">
+                                    <p><span>4 بهمن 1397</span></p>
+                                    <h2>دستورات پخت از حرفه ای ها</h2>
+                                    <h5>توسط خان ایگ</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="blog-block">
+                                <div class="blog-img-box">
+                                    <img src="{% static 'images/featured-image-04.jpg' %}" alt=""/>
+                                    <div class="overlay">
+                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="blog-dit">
+                                    <p><span>12 دی 1397</span></p>
+                                    <h2>تمام تخم مرغ ها به شما تعلق دارند</h2>
+                                    <h5>توسط اقای ای</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                </div>
+                <!-- end blog-box -->
+
+                <div class="blog-btn-v">
+                    <a class="hvr-underline-from-center" href="#">بلاگ رو ببینید</a>
+                </div>
+
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end blog-main -->
+
+<div id="pricing" class="pricing-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2 class="block-title text-center">
+                    قیمت ها
+                </h2>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+            </div>
+            <div class="panel-pricing-in">
+                <!-- item -->
+                <div class="col-md-4 col-sm-4 text-center">
+                    <div class="panel panel-pricing">
+                        <div class="panel-heading">
+                            <div class="pric-icon">
+                                <img src="{% static 'images/store.png' %}" alt=""/>
+                            </div>
+                            <h3>معمولی</h3>
+                        </div>
+                        <div class="panel-body text-center">
+                            <p><strong>30000/<span>ماه</span></strong></p>
+                        </div>
+                        <ul class="list-group text-center">
+                            <li class="list-group-item"><i class="fa fa-check"></i> یک وبسایت</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> یک کاربر</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 10 گیگابایت بندویچ</li>
+                            <li class="list-group-item"><i class="fa fa-times"></i> 2 گیکابایت فضا</li>
+                            <li class="list-group-item"><i class="fa fa-times"></i> کار افلاین</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> ساپورت تمام مدت</li>
+                        </ul>
+                        <div class="panel-footer">
+                            <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">همین حالا خرید کنید </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /item -->
+
+                <!-- item -->
+                <div class="col-md-4 col-sm-4 text-center">
+                    <div class="panel panel-pricing">
+                        <div class="panel-heading">
+                            <div class="pric-icon">
+                                <img src="{% static 'images/food.png' %}" alt=""/>
+                            </div>
+                            <h3>حرفه ای</h3>
+                        </div>
+                        <div class="panel-body text-center">
+                            <p><strong>60000/<span>ماه</span></strong></p>
+                        </div>
+                        <ul class="list-group text-center">
+                            <li class="list-group-item"><i class="fa fa-check"></i> یک وبسایت</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> یک کاربر</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 50 گیگ بندویچ</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 2 گیگابایت فضا</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> کار افلاین</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> ساپورت 24 ساعته</li>
+                        </ul>
+                        <div class="panel-footer">
+                            <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">همین حالا بخرید</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /item -->
+
+                <!-- item -->
+                <div class="col-md-4 col-sm-4 text-center">
+                    <div class="panel panel-pricing">
+                        <div class="panel-heading">
+                            <div class="pric-icon">
+                                <img src="{% static 'images/coffee.png' %}" alt=""/>
+                            </div>
+                            <h3>فوق پیشرفته</h3>
+                        </div>
+                        <div class="panel-body text-center">
+                            <p><strong>90/<span>ماه</span></strong></p>
+                        </div>
+                        <ul class="list-group text-center">
+                            <li class="list-group-item"><i class="fa fa-check"></i> یک وبسایت</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> یک کاربر</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 100 گیگ بندویچ</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 2 گیگابایت فضا</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> کار افلاین</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> ساپورت 24 ساعته</li>
+                        </ul>
+                        <div class="panel-footer">
+                            <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">همین حالا بخرید</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /item -->
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end pricing-main -->
+
+<div id="footer" class="footer-main">
+    <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="ft-title color-white text-center"> روزنامه </h2>
+                        <p> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                            است</p>
+                    </div>
+                    <form>
+                        <input type="email" placeholder="لطفا ایمیل خود را وارد کنید">
+                        <a href="#" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                    </form>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end footer-news -->
+    <div class="footer-box pad-top-70">
+        <div class="container">
+            <div class="row">
+                <div class="footer-in-main">
+                    <div class="footer-logo">
+                        <div class="text-center">
+                            <img src="{% static 'images/logo.png' %}" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-a">
+
+                        </div>
+                        <!-- end footer-box-a -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-b">
+                            <h3>منوی جدید</h3>
+                            <ul>
+                                <li><a href="#">ساندویچ بومبای ایتالیایی</a></li>
+                                <li><a href="#">ساندویچ بومبای ایتالیایی</a></li>
+                                <li><a href="#">ساندویچ بومبای ایتالیایی</a></li>
+                                <li><a href="#">ساندویچ بومبای ایتالیایی</a></li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-b -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-c">
+                            <h3>تماس با ما</h3>
+                            <p>
+                                <span>{{ site_setting.address }} </span>
+                            </p>
+                            <br>
+                            <br>
+                            <p>
+                                    <span>
+									{{ site_setting.phone }}
+								</span>
+                            </p>
+                            <br>
+                            <br>
+                            <p>
+                                <span>{{ site_setting.email }}</span>
+                            </p>
+                        </div>
+                        <!-- end footer-box-c -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-d">
+                            <h3>ساعات کاری</h3>
+
+                            <ul>
+                                <li>
+                                    <p>: شنبه تا چهارشنبه</p>
+                                    <span style="color: #514c4c; direction: rtl">{{ site_setting.time_work }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-d -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end footer-in-main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+        <div id="copyright" class="copyright-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h6 class="copy-title"> {{ site_setting.copy_right }} <a href="#" target="_blank"></a></h6>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end copyright-main -->
+    </div>
+    <!-- end footer-box -->
+</div>
+<!-- end footer-main -->
+
+<a href="#" class="scrollup" style="display: none;">اسکرول</a>
+
+<!-- ALL JS FILES -->
+<script src="{% static 'js/all.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- ALL PLUGINS -->
+<script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
